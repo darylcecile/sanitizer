@@ -3,7 +3,7 @@
  * Lightweight DOM-like tree without browser dependencies.
  */
 
-export const enum NodeType {
+export enum NodeType {
   Document = 0,
   Element = 1,
   Text = 3,
