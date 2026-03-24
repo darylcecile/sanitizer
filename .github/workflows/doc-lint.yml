@@ -1,0 +1,19 @@
+name: Doc Lint
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  doc-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Lint documentation
+        run: bun run docs:lint
