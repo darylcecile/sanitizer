@@ -2,8 +2,13 @@
   "name": "@darylcecile/sanitizer",
   "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "docs:lint": "bunx gh-doccy lint",
+    "docs:review": "bunx gh-doccy review"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "gh-doccy": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
