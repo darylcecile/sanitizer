@@ -1,6 +1,6 @@
 {
   "name": "@darylcecile/sanitizer",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "A zero-dependency, SSR-safe HTML sanitizer following the W3C Sanitizer API spec",
   "module": "dist/index.js",
   "main": "dist/index.js",
