@@ -1,16 +1,55 @@
 {
   "name": "@darylcecile/sanitizer",
+  "version": "0.1.0",
+  "description": "A zero-dependency, SSR-safe HTML sanitizer following the W3C Sanitizer API spec",
   "module": "src/index.ts",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src",
+    "!src/**/*.test.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
+    "test": "bun test",
+    "typecheck": "bunx tsc --noEmit",
     "docs:lint": "bunx gh-doccy lint",
     "docs:review": "bunx gh-doccy review"
+  },
+  "keywords": [
+    "sanitizer",
+    "html",
+    "xss",
+    "sanitize",
+    "w3c",
+    "ssr",
+    "parser",
+    "security",
+    "zero-dependency"
+  ],
+  "author": "Daryl Cecile",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darylcecile/sanitizer"
+  },
+  "homepage": "https://github.com/darylcecile/sanitizer#readme",
+  "bugs": {
+    "url": "https://github.com/darylcecile/sanitizer/issues"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "gh-doccy": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": "^5.0.0"
   }
 }
