@@ -1,0 +1,85 @@
+skipTypes:
+  - code
+  - inlineCode
+  - html
+dictionaryLang: en_US
+dictionary:
+  - sanitizer
+  - sanitize
+  - sanitization
+  - sanitized
+  - sanitizeUnsafe
+  - SSR
+  - XSS
+  - SVG
+  - URI
+  - npm
+  - Deno
+  - onclick
+  - onerror
+  - onload
+  - onmouseover
+  - onfocus
+  - href
+  - hreflang
+  - formaction
+  - srcdoc
+  - javascript
+  - doccy
+  - namespace
+  - namespaces
+  - frontmatter
+  - MathML
+  - mrow
+  - mfrac
+  - darylcecile
+  - config
+  - configs
+  - HTMLElement
+  - programmatically
+  - subtree
+  - CMS
+  - customise
+  - normalised
+  - recognised
+  - removeUnsafe
+  - SanitizeOptions
+  - SanitizerConfig
+  - SanitizerElement
+  - SanitizerElementNamespace
+  - SanitizerElementWithAttributes
+  - SanitizerAttribute
+  - SanitizerAttributeNamespace
+  - SanitizerPresets
+  - allowElement
+  - removeElement
+  - replaceElementWithChildren
+  - allowAttribute
+  - removeAttribute
+  - setComments
+  - setDataAttributes
+  - SanitizerElement
+  - html
+  - parseHTML
+  - serialiser
+  - serialising
+  - serialise
+  - serializer
+  - lowercased
+  - AST
+  - Doctypes
+  - doctype
+  - DOCTYPE
+  - DocumentNode
+  - ElementNode
+  - TextNode
+  - CommentNode
+  - Serializer
+root: docs
+dateFormat: DD-MMM-YYYY
+defaultStalenessThreshold: 30d
+strictness:
+  spelling: warn
+  staleness: error
+  missingData: warn
+  brokenLinks: error
