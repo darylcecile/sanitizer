@@ -9,6 +9,7 @@ A **zero-dependency**, **SSR-safe** HTML Sanitizer following the [W3C Sanitizer 
 - 🌐 **SSR-safe** — custom HTML parser & serializer, no browser APIs needed
 - 📦 **Zero dependencies** — lightweight, self-contained
 - 🧩 **Configurable** — element/attribute allow-lists, remove-lists, `replaceWithChildrenElements`
+- 🔧 **Exposed parser** — parse HTML to AST, walk/modify the tree, serialize back to HTML
 - ✅ **TypeScript-first** — full type definitions
 - 🧪 **Battle-tested** — 188 tests including adapted `sanitize-html` test vectors
 
@@ -244,6 +245,53 @@ All modifier methods return `boolean` — `true` if the config was changed, `fal
 | `removeUnsafe()` | Strip all script-executing elements and attributes |
 | `get()` | Returns the current configuration dictionary (sorted) |
 
+## HTML Parser
+
+The library exposes its HTML parser and serializer for direct AST manipulation — useful for custom transformations, analysis, or any use case beyond sanitization.
+
+```typescript
+import { parseHTML, serialize, NodeType } from "@darylcecile/sanitizer";
+
+// Parse HTML into an AST
+const doc = parseHTML("<div><p>Hello <b>world</b></p></div>");
+
+// Walk the tree
+for (const child of doc.children) {
+  if (child.type === NodeType.Element) {
+    console.log(child.tagName); // 'div'
+  }
+}
+
+// Serialize back to HTML
+console.log(serialize(doc));
+// → '<div><p>Hello <b>world</b></p></div>'
+```
+
+### Modifying the AST
+
+```typescript
+import {
+  parseHTML, serialize, createElement, createText,
+  appendChild, removeChild,
+} from "@darylcecile/sanitizer";
+
+const doc = parseHTML("<ul><li>First</li></ul>");
+const ul = doc.children[0]; // the <ul>
+
+if (ul.type === 1) {
+  const li = createElement("li", "http://www.w3.org/1999/xhtml");
+  appendChild(li, createText("Second"));
+  appendChild(ul, li);
+}
+
+console.log(serialize(doc));
+// → '<ul><li>First</li><li>Second</li></ul>'
+```
+
+The parser handles void elements, raw text (`<script>`, `<style>`), auto-closing siblings, comments, doctypes, SVG/MathML namespace switching, and malformed HTML.
+
+See the [Parser Guide](docs/parser.md) for full documentation.
+
 ## API Reference
 
 ### `sanitize(html, options?)`
@@ -297,6 +345,24 @@ import {
   BUILT_IN_SAFE_BASELINE_CONFIG,  // blocks only script-executing content
 } from "@darylcecile/sanitizer";
 ```
+
+### `parseHTML(html)`
+
+Parse an HTML string into a `DocumentNode` AST.
+
+```typescript
+function parseHTML(html: string): DocumentNode;
+```
+
+### `serialize(node)`
+
+Serialize a `DocumentNode` or `ElementNode` back to an HTML string.
+
+```typescript
+function serialize(node: DocumentNode | ElementNode): string;
+```
+
+See the full [API Reference](docs/api-reference.md) and [Parser Guide](docs/parser.md) for all exports including AST types, factory functions, and tree manipulation utilities.
 
 ## When Should I Use This vs `sanitize-html`?
 
