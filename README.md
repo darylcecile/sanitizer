@@ -10,7 +10,7 @@ A **zero-dependency**, **SSR-safe** HTML Sanitizer following the [W3C Sanitizer 
 - 📦 **Zero dependencies** — lightweight, self-contained
 - 🧩 **Configurable** — element/attribute allow-lists, remove-lists, `replaceWithChildrenElements`
 - ✅ **TypeScript-first** — full type definitions
-- 🧪 **Battle-tested** — 188 tests including adapted [sanitize-html](https://github.com/apostrophecms/apostrophe/tree/main/packages/sanitize-html) test vectors
+- 🧪 **Battle-tested** — 188 tests including adapted `sanitize-html` test vectors
 
 ## Install
 
@@ -298,7 +298,9 @@ import {
 } from "@darylcecile/sanitizer";
 ```
 
-## Key Differences from `sanitize-html`
+## When Should I Use This vs `sanitize-html`?
+
+[`sanitize-html`](https://github.com/apostrophecms/apostrophe/tree/main/packages/sanitize-html) is a mature, widely-used library with a rich feature set. Choose the right tool for your needs:
 
 | Feature | This library | `sanitize-html` |
 |---------|-------------|-----------------|
@@ -312,6 +314,10 @@ import {
 | **Hostname filtering** | Not supported | `allowedIframeHostnames`, `allowedScriptHostnames` |
 | **Escape mode** | Not supported | `disallowedTagsMode: 'escape'` |
 
+**Use this library** if you want W3C spec compliance, zero dependencies, or a lightweight sanitizer for typical use cases.
+
+**Use `sanitize-html`** if you need advanced features like tag transforms, CSS style filtering, per-tag scheme allow-lists, or iframe hostname restrictions.
+
 ## Running Tests
 
 ```bash
@@ -320,4 +326,4 @@ bun test
 
 The test suite includes 188 tests:
 - **73 core tests** — sanitization, config, parser, serializer
-- **115 adapted tests** — ported from [sanitize-html](https://github.com/apostrophecms/apostrophe/tree/main/packages/sanitize-html) covering XSS vectors, entity handling, real-world patterns, and edge cases
+- **115 adapted tests** — ported from `sanitize-html` covering XSS vectors, entity handling, real-world patterns, and edge cases
