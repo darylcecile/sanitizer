@@ -1,0 +1,19 @@
+name: Doc Lint
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  doc-lint:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install gh-doccy
+        run: gh extension install darylcecile/gh-doccy
+
+      - name: Lint documentation
+        run: gh doccy lint
