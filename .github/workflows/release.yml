@@ -59,16 +59,16 @@ jobs:
     needs: check-version
     if: needs.check-version.outputs.version_changed == 'true'
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
+      - name: Install gh-doccy
+        run: gh extension install darylcecile/gh-doccy
 
       - name: Lint documentation
-        run: bun run docs:lint
+        run: gh doccy lint
 
   npm-publish:
     needs: [check-version, test, doc-lint]
