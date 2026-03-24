@@ -1,0 +1,11 @@
+{
+  "name": "@darylcecile/sanitizer",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
