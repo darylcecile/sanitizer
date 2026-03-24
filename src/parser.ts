@@ -58,7 +58,7 @@ const AUTO_CLOSE_SIBLINGS: Record<string, Set<string>> = {
   rp: new Set(["rt", "rp"]),
 };
 
-class Parser {
+export class Parser {
   private pos = 0;
   private readonly html: string;
   private readonly doc: DocumentNode;

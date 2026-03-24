@@ -30,3 +30,31 @@ export {
   BUILT_IN_SAFE_DEFAULT_CONFIG,
   BUILT_IN_SAFE_BASELINE_CONFIG,
 } from "./defaults.ts";
+
+// HTML parser & serializer for direct AST manipulation
+export { parseHTML, Parser } from "./parser.ts";
+export { serialize } from "./serializer.ts";
+
+// AST node types and utilities
+export {
+  NodeType,
+  createDocument,
+  createElement,
+  createText,
+  createComment,
+  createDocumentType,
+  appendChild,
+  removeChild,
+  replaceWithChildren,
+} from "./ast.ts";
+
+export type {
+  DocumentNode,
+  ElementNode,
+  TextNode,
+  CommentNode,
+  DocumentTypeNode,
+  ChildNode,
+  ParentNode,
+  Attribute,
+} from "./ast.ts";

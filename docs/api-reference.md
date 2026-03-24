@@ -307,3 +307,65 @@ The baseline configuration defining which elements and attributes are always con
 ```typescript
 import { BUILT_IN_SAFE_BASELINE_CONFIG } from "@darylcecile/sanitizer";
 ```
+
+---
+
+## Parser and Serializer
+
+### parseHTML(html)
+
+Parse an HTML string into a `DocumentNode` AST.
+
+```typescript
+function parseHTML(html: string): DocumentNode;
+```
+
+### Parser
+
+The `Parser` class provides low-level control over HTML parsing. Construct it with an HTML string and a `DocumentNode`, then call `parse()`.
+
+```typescript
+import { Parser, createDocument } from "@darylcecile/sanitizer";
+
+const doc = createDocument();
+const parser = new Parser("<p>Hello</p>", doc);
+parser.parse();
+```
+
+### serialize(node)
+
+Serialize a `DocumentNode` or `ElementNode` back to an HTML string.
+
+```typescript
+function serialize(node: DocumentNode | ElementNode): string;
+```
+
+### AST Factory Functions
+
+| Function | Description |
+|----------|-------------|
+| `createDocument()` | Create an empty `DocumentNode` |
+| `createElement(tagName, namespace, attributes?)` | Create an `ElementNode` |
+| `createText(value)` | Create a `TextNode` |
+| `createComment(value)` | Create a `CommentNode` |
+| `createDocumentType(name, publicId?, systemId?)` | Create a `DocumentTypeNode` |
+
+### AST Manipulation
+
+| Function | Description |
+|----------|-------------|
+| `appendChild(parent, child)` | Append a child node to a parent |
+| `removeChild(parent, child)` | Remove a child from its parent |
+| `replaceWithChildren(parent, element)` | Remove an element but keep its children in place |
+
+### AST Node Types
+
+| Export | Value | Description |
+|--------|-------|-------------|
+| `NodeType.Document` | `0` | Document root |
+| `NodeType.Element` | `1` | HTML/SVG/MathML element |
+| `NodeType.Text` | `3` | Text content |
+| `NodeType.Comment` | `8` | HTML comment |
+| `NodeType.DocumentType` | `10` | DOCTYPE declaration |
+
+See the [Parser Guide](./parser.md) for detailed usage and examples.

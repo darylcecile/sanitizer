@@ -80,4 +80,5 @@ The default configuration allows approximately 100 safe HTML elements along with
 
 - [Configuration Guide](./configuration.md) — customise which elements and attributes are allowed
 - [Advanced Usage](./advanced-usage.md) — the Sanitizer class, per-element attributes, and unsafe mode
+- [HTML Parser](./parser.md) — parse HTML into an AST for custom transformations
 - [API Reference](./api-reference.md) — full reference for all exports

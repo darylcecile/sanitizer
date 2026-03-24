@@ -60,6 +60,21 @@ dictionary:
   - setDataAttributes
   - SanitizerElement
   - html
+  - parseHTML
+  - serialiser
+  - serialising
+  - serialise
+  - serializer
+  - lowercased
+  - AST
+  - Doctypes
+  - doctype
+  - DOCTYPE
+  - DocumentNode
+  - ElementNode
+  - TextNode
+  - CommentNode
+  - Serializer
 root: docs
 dateFormat: DD-MMM-YYYY
 defaultStalenessThreshold: 30d

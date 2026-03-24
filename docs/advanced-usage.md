@@ -216,4 +216,5 @@ const clean = sanitize(userHtml, { sanitizer: s });
 ## Next Steps
 
 - [API Reference](./api-reference.md) — full reference for all exports
+- [HTML Parser](./parser.md) — parse HTML into an AST for custom transformations
 - [Configuration Guide](./configuration.md) — element and attribute filtering options
